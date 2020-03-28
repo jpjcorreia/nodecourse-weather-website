@@ -17,9 +17,10 @@ const forecast = (latitude, longitude, callback) => {
       const temp = body.currently.temperature;
       const rainChance = body.currently.precipProbability;
       const summary = body.daily.data[0].summary;
+      const uvIndex = body.daily.data[0].uvIndex;
 
       callback(undefined, {
-        forecast: summary + " It is currently " + temp + " degrees out." + " There is a " + rainChance + "% chance of rain."
+        forecast: summary + " It is currently " + temp + " degrees out." + " There is a " + rainChance + "% chance of rain. UV Index for today is: " + uvIndex
       });
     }
   });
